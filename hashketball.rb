@@ -173,6 +173,20 @@ def player_stats(name)
   end
 end
 
+def big_shoe_rebounds
+  out = 0
+  big_shoe = 0
+  game_hash.each{|location,team_data|
+    team_data[:players].each{|player,stats|
+      if stats[:shoe]>big_shoe
+        big_shoe = stats[:shoe]
+        out = stats[:rebounds]
+      end
+      }
+    }
+  out
+end
+
 #puts team_colors("Brooklyn Nets")
 
 #puts num_points_scored("Brendan Haywood")
